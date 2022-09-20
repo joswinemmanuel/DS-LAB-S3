@@ -16,7 +16,7 @@ int main(){
 void read_matrix(int a[10][10], int row, int column){
     printf("\nEnter the elements of the matrix : \n");
     for(int i=0; i<row; i++){
-        for(int j=0; j<row; j++){
+        for(int j=0; j<column; j++){
             printf("[%d][%d] : ", i, j);
             scanf("%d", &a[i][j]);
         }
