@@ -9,7 +9,7 @@
 <h3>8)	Implementation of Linked List operations</h3>
 <h3>9)	Polynomial addition using linked list</h3>
 <h3>10)	Implementation of binary trees using arrays</h3>
-<h3>11)	Implementation of insertion and quick</h3>
+<h3>11)	Implementation of insertion and quick sort</h3>
 <h3>12)	Implementation of merge and heap sort</h3>
 <h3>13)	Implementation of DFS and BFS for graph</h3>
 <h3>14)	Implementation of hash table with overflow handling technique</h3>
