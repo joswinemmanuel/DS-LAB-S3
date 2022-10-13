@@ -76,7 +76,7 @@ int main() {
 
 void inputFirst(int value) { 
     struct node *temp;
-    temp=(struct node *)malloc(sizeof(struct node *));
+    temp = (struct node *)malloc(sizeof(struct node *));
      
     if(start == NULL) {
         temp->ptr = NULL;
@@ -110,7 +110,7 @@ void inputEnd(int value) {
 
 void inputParticular(int value, int position){
     struct node *temp, *p;
-    temp=(struct node *)malloc(sizeof(struct node *));
+    temp = (struct node *)malloc(sizeof(struct node *));
 
     if(start == NULL) {
         temp->ptr = NULL;
