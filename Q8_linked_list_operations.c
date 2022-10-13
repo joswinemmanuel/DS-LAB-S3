@@ -2,13 +2,14 @@
 #include <stdlib.h>
 
 void inputFirst(int);
-void display();
 void inputEnd(int);
-void inputParticular(int,int);
+void inputParticular(int, int);
 
 void deleteFirst();
 void deleteEnd();
 void deleteParticular(int);
+
+void display();
 
 struct node {
     int data;
@@ -98,7 +99,7 @@ void inputEnd(int value) {
         start = temp;
     } else {
         p = start;
-        while(p->ptr != NULL){
+        while(p->ptr != NULL) {
             p = p->ptr;
         }
         p->ptr = temp;
@@ -110,15 +111,18 @@ void inputEnd(int value) {
 void inputParticular(int value, int position){
     struct node *temp, *p;
     temp=(struct node *)malloc(sizeof(struct node *));
-    int i;
 
     if(start == NULL) {
         temp->ptr = NULL;
         temp->data = value;
         start = temp;
+    } else if(position <= 1) {
+        temp->ptr = start;
+        temp->data = value;
+        start = temp;
     } else {
         p = start;
-        for(i=1; i<position-1; i++){
+        for(int i=1; i<position-1; i++) {
             p = p->ptr;
         }
         temp->ptr = p->ptr;
@@ -129,36 +133,31 @@ void inputParticular(int value, int position){
 
 void deleteFirst() {
     struct node *temp;
-    int value;
 
     if(start == NULL) {
-        printf("Linked list is empty\n");
+        printf("Cannot delete\n");
     } else if(start->ptr == NULL) {
         temp = start;
-        value = start->data;
-        printf("Deleting data = %d\n", value);
         start = NULL;
+        printf("Deleting data = %d\n", temp->data);
         free(temp);
     } else {
         temp = start;
         start = start->ptr;
-        value = temp->data;
-        printf("Deleting data = %d\n", value);
+        printf("Deleting data = %d\n", temp->data);
         free(temp);
     }
 }
 
 void deleteEnd() {
     struct node *temp;
-    int value;
 
     if(start == NULL) {
-        printf("Linked list is empty\n");
+        printf("Cannot delete\n");
     } else if(start->ptr == NULL) {
-        temp = start;        
-        value = start->data;
-        printf("Deleting data = %d\n", value);
-        start = NULL;
+        temp = start;  
+        start = NULL;      
+        printf("Deleting data = %d\n", temp->data);
         free(temp);
     } else {
         struct node *p;
@@ -169,38 +168,36 @@ void deleteEnd() {
             temp = temp->ptr;
         }
         temp->ptr = NULL;
-        value = p->data;
-        printf("Deleting data = %d\n", value);
+        printf("Deleting data = %d\n", p->data);
         free(p);
     }
 }
 
 void deleteParticular(int position) {
-	struct node *temp;
-	int value, i;
+    struct node *temp, *t;
 
-        if(start == NULL){
-       	 printf("\nLinked list is empty\n");
+    if(start == NULL)
+        printf("Cannot delete\n");
+    else if(position==1 && start->ptr==NULL) {
+        temp = start;
+        start = NULL;
+        printf("Deleted data = %d\n", temp->data);
+        free(temp);
+    } else if(position == 1) {
+        temp = start;
+        start = start->ptr;
+        printf("Deleted data = %d\n", temp->data);
+        free(temp);
+    } else {
+        temp = start;
+        for(int i=1; i<position-1; i++) {
+            temp = temp->ptr;
         }
-     	else if(start->ptr == NULL){
-        	temp = start;
-        	value = start->data;
-        	printf("Deleting data = %d\n", value);
-        	start = NULL;
-        	free(temp);
-    	} else { 
-    		struct node *p;
-    		temp = start;
-    		p = start->ptr;
-    		for(int i=1; i<position-1; i++){
-    			temp = temp->ptr;
-    			p = p->ptr;	
-    		}
-    		value = p->data;
-        	printf("Deleting data = %d\n", value);
-    		temp->ptr = p->ptr;
-    		free(p);
-    	}
+        t = temp->ptr;
+        temp->ptr = t->ptr;
+        printf("Deleted data = %d\n", t->data);
+        free(t);
+    }
 }
 
 void display(){
