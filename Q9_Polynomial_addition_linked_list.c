@@ -36,26 +36,26 @@ int main() {
 }
 
 void polynomialInput(struct node **poly, int noOfTerms) {
-	int coeff, exp, cont;
-	struct node *temp;
+    int coeff, exp, cont;	
+    struct node *temp;
     temp = (struct node *)malloc(sizeof(struct node *));
-	*poly = temp;
-	for(int i=0; i<noOfTerms; i++) {
-        printf("Exponent : ");
-		scanf("%d", &exp);
-		printf("Coeffecient of (x^%d) : ", exp);
-		scanf("%d", &coeff);
-		
-		temp->coefficient = coeff;
-		temp->exponent = exp;
-		temp-> ptr = NULL;
+    *poly = temp;
+    for(int i=0; i<noOfTerms; i++) {
+	printf("Exponent : ");
+	scanf("%d", &exp);
+	printf("Coeffecient of (x^%d) : ", exp);
+	scanf("%d", &coeff);
+
+	temp->coefficient = coeff;
+	temp->exponent = exp;
+	temp-> ptr = NULL;
 
         if(i != noOfTerms-1){
-		    temp->ptr = (struct node *)malloc(sizeof(struct node *));
-		    temp = temp->ptr;
-		    temp->ptr = NULL;
+	    temp->ptr = (struct node *)malloc(sizeof(struct node *));
+	    temp = temp->ptr;
+	    temp->ptr = NULL;
         }
-	}
+    }
 }
 
 void display(struct node *poly) {
