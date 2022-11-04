@@ -4,7 +4,7 @@ void swap(int *a, int *b) {
 	int temp = *a;
 	*a = *b;
 	*b = temp;
-}
+} 
 
 void heapify(int arr[], int N, int i) {
 	int largest = i;
