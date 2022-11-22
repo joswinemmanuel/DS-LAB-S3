@@ -27,7 +27,7 @@ void read_matrix(int a[10][10], int row, int column){
 	}
 }
 
-void create_sparse(int a[10][10], int b[50][3], int row, int column){
+void create_sparse(int a[10][10], int b[50][3], int row, int column){ 
 	int k=1;
 	b[0][0] = row;
 	b[0][1] = column;
