@@ -32,7 +32,7 @@ int main(){
 		}
 	} while(option != 4);
 }
-
+ 
 void Enqueue(){
 	if(rear >= n-1){
 		printf("Queue is in OVER FLOW condition\n");
